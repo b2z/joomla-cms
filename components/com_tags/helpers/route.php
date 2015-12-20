@@ -153,6 +153,12 @@ class TagsHelperRoute extends JHelperRoute
 								}
 							}
 						}
+
+						// Fallback to default tags view
+						if ($view == 'tags')
+						{
+							self::$lookup[$lang][$view]['default'] = $item->id;
+						}
 					}
 				}
 			}
@@ -169,6 +175,12 @@ class TagsHelperRoute extends JHelperRoute
 						if (isset(self::$lookup[$language][$view][(int) $id]))
 						{
 							return self::$lookup[$language][$view][(int) $id];
+						}
+
+						// Return the default Itemid
+						if (isset(self::$lookup[$language]['tags']['default']))
+						{
+							return self::$lookup[$language]['tags']['default'];
 						}
 					}
 				}
