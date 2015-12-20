@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
+	<fieldset name="component">
+		<field
+			name="tags_fallback"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			default="0"
+			label="COM_TAGS_CONFIG_TAGS_FALLBACK_LABEL"
+			description="COM_TAGS_CONFIG_TAGS_FALLBACK_DESC"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	</fieldset>
+
 	<fieldset
 		name="taglist"
 		label="COM_TAGS_CONFIG_TAG_SETTINGS_LABEL"
