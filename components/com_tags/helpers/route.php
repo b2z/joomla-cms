@@ -181,13 +181,13 @@ class TagsHelperRoute extends JHelperRoute
 						{
 							return self::$lookup[$language][$view][(int) $id];
 						}
-
-						// Return the default Itemid
-						if (isset(self::$lookup[$language]['tags']['default'][0]))
-						{
-							return self::$lookup[$language]['tags']['default'][0];
-						}
 					}
+				}
+
+				// Return the default Itemid
+				if (isset(self::$lookup[$language]['tags']['default'][0]))
+				{
+					return self::$lookup[$language]['tags']['default'][0];
 				}
 			}
 		}
