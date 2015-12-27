@@ -157,6 +157,11 @@ class TagsHelperRoute extends JHelperRoute
 						// Fallback to default tags view
 						if ($view == 'tags' && $component->params->get('tags_fallback', 0))
 						{
+							if (!isset(self::$lookup[$lang][$view]['default']))
+							{
+								self::$lookup[$lang][$view]['default'] = array();
+							}
+
 							self::$lookup[$lang][$view]['default'][] = $item->id;
 						}
 					}
@@ -188,6 +193,12 @@ class TagsHelperRoute extends JHelperRoute
 		}
 		else
 		{
+			// Return the default Itemid
+			if (isset(self::$lookup[$language]['tags']['default'][0]))
+			{
+				return self::$lookup[$language]['tags']['default'][0];
+			}
+
 			$active = $menus->getActive();
 
 			if ($active)
